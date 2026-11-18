@@ -20,3 +20,5 @@ public class RestConfig {
         return builder.messageConverters(new MappingJackson2HttpMessageConverter(strict)).build();
     }
 }
+
+//SOP
