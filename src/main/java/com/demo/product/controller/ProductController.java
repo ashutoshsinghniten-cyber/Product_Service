@@ -20,6 +20,7 @@ public class ProductController {
 
     @GetMapping
     public List<ProductDto> getAll() {
+        //hellpppppp
         return service.getAll();
     }
 
