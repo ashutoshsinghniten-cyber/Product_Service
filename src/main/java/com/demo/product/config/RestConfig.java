@@ -7,10 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-// Done
-// Okay
-//bjnvgh
-//yessss
+
 @Configuration
 public class RestConfig {
 
@@ -24,5 +21,4 @@ public class RestConfig {
     }
 }
 
-//SOP
-// Lo jii hum firr a gye...
+
