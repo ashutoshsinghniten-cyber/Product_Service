@@ -20,7 +20,7 @@ public class ProductController {
 
     @GetMapping
     public List<ProductDto> getAll() {
-        //hellpppppp
+      
         return service.getAll();
     }
 
@@ -31,4 +31,4 @@ public class ProductController {
                 .orElse(ResponseEntity.notFound().build());
     }
 }
-// controller
+
