@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class RemoteCallControllerTest {
 
     private static final String DOWNSTREAM = "http://localhost:8081/api/orders/100";
-    private static final String VALID = "{\"id\":100,\"userId\":1,\"product_Id\":500,\"quantity\":2}";
+    private static final String VALID = "{\"id\":100,\"userId\":1,\"productId\":500,\"quantity\":2}";
 
     @Autowired
     private MockMvc mvc;
@@ -56,14 +56,14 @@ class RemoteCallControllerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "{\"id\":100,\"userId\":1,\"product_Id\":500,\"quantity\":2,\"extra\":1}",   // extra field
-            "{\"id\":100,\"userId\":1,\"product_Id\":500}",                              // missing field
-            "{\"id\":100,\"userId\":1,\"productId\":500,\"quantity\":2}",                // renamed field
-            "{\"id\":100,\"userId\":1,\"product_Id\":500,\"quantity\":2.7}",             // decimal for int
-            "{\"id\":100,\"userId\":1,\"product_Id\":500,\"quantity\":\"2\"}",           // string for int
-            "{\"id\":100,\"userId\":1,\"product_Id\":500,\"quantity\":null}",            // null for int
-            "{\"id\":null,\"userId\":1,\"product_Id\":500,\"quantity\":2}",              // null field
-            "{\"id\":\"100\",\"userId\":1,\"product_Id\":500,\"quantity\":2}",           // string for Long
+            "{\"id\":100,\"userId\":1,\"productId\":500,\"quantity\":2,\"extra\":1}",   // extra field
+            "{\"id\":100,\"userId\":1,\"productId\":500}",                              // missing field
+            "{\"id\":100,\"userId\":1,\"product_Id\":500,\"quantity\":2}",                // renamed field
+            "{\"id\":100,\"userId\":1,\"productId\":500,\"quantity\":2.7}",             // decimal for int
+            "{\"id\":100,\"userId\":1,\"productId\":500,\"quantity\":\"2\"}",           // string for int
+            "{\"id\":100,\"userId\":1,\"productId\":500,\"quantity\":null}",            // null for int
+            "{\"id\":null,\"userId\":1,\"productId\":500,\"quantity\":2}",              // null field
+            "{\"id\":\"100\",\"userId\":1,\"productId\":500,\"quantity\":2}",           // string for Long
             "[]",                                                                        // array instead of object
             "null",                                                                      // null body
             ""                                                                           // empty body

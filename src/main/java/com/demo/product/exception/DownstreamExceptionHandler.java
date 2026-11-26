@@ -11,13 +11,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientException;
-<<<<<<< HEAD
 import org.springframework.web.client.RestClientResponseException;
 
 import java.net.SocketTimeoutException;
-=======
-
->>>>>>> f0d54526c9f99b63bac037c526e2af3fbb2032e6
 import java.util.Map;
 
 // Turns failed calls to the other services into clear responses.
