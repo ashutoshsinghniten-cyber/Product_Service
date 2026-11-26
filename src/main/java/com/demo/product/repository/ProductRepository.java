@@ -22,7 +22,4 @@ public class ProductRepository {
         return data.stream().filter(i -> i.id().equals(id)).findFirst();
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> f0d54526c9f99b63bac037c526e2af3fbb2032e6
