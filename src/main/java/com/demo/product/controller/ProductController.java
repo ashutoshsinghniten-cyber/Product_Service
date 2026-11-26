@@ -20,6 +20,10 @@ public class ProductController {
 
     @GetMapping
     public List<ProductDto> getAll() {
+<<<<<<< HEAD
+=======
+      
+>>>>>>> f0d54526c9f99b63bac037c526e2af3fbb2032e6
         return service.getAll();
     }
 
@@ -30,3 +34,7 @@ public class ProductController {
                 .orElse(ResponseEntity.notFound().build());
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f0d54526c9f99b63bac037c526e2af3fbb2032e6
