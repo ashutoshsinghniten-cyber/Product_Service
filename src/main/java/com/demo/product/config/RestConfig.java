@@ -13,11 +13,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-<<<<<<< HEAD
+
 import java.time.Duration;
 
-=======
->>>>>>> f0d54526c9f99b63bac037c526e2af3fbb2032e6
+
 @Configuration
 public class RestConfig {
 
@@ -44,8 +43,4 @@ public class RestConfig {
                 .build();
     }
 }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> f0d54526c9f99b63bac037c526e2af3fbb2032e6
