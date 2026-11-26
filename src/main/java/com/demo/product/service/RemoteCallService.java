@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.LinkedHashMap;
@@ -31,22 +32,30 @@ public class RemoteCallService {
 
     // ---- calls user-service (port 8080) ----
     public List<UserDto> getAllUsers() {
-        return rest.exchange(userUrl + "/api/users", HttpMethod.GET, null,
-                new ParameterizedTypeReference<List<UserDto>>() {}).getBody();
+        return requireBody(rest.exchange(userUrl + "/api/users", HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<UserDto>>() {}).getBody(), "/api/users");
     }
 
     public UserDto getUserById(Long id) {
-        return rest.getForObject(userUrl + "/api/users/" + id, UserDto.class);
+        return requireBody(rest.getForObject(userUrl + "/api/users/" + id, UserDto.class), "/api/users/" + id);
     }
 
     // ---- calls order-service (port 8081) ----
     public List<OrderDto> getAllOrders() {
-        return rest.exchange(orderUrl + "/api/orders", HttpMethod.GET, null,
-                new ParameterizedTypeReference<List<OrderDto>>() {}).getBody();
+        return requireBody(rest.exchange(orderUrl + "/api/orders", HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<OrderDto>>() {}).getBody(), "/api/orders");
     }
 
     public OrderDto getOrderById(Long id) {
-        return rest.getForObject(orderUrl + "/api/orders/" + id, OrderDto.class);
+        return requireBody(rest.getForObject(orderUrl + "/api/orders/" + id, OrderDto.class), "/api/orders/" + id);
+    }
+
+    // An empty or "null" response body is also a broken contract
+    private static <T> T requireBody(T body, String path) {
+        if (body == null) {
+            throw new RestClientException("Empty response body from " + path);
+        }
+        return body;
     }
 
     // ---- calls every endpoint of both other services ----
